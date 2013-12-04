@@ -59,7 +59,7 @@ def storeTestResult():
     
     
 def runTests():
-    runSingleTest(allTests.MllInterfaceTest,'testSetMaxInfluencePerVertex')
+    runSingleTest(allTests.ImportDefectScenarios,'testDefectXmlImportIssue')
     
     #runTestClass(allTests.CopyPasteActionsTest)
     #runTestClass(VariousImportScenarios)

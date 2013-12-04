@@ -11,7 +11,7 @@ from ngSkinToolsTest.actionsTest import ActionsTest, BaseActionTest
 from ngSkinToolsTest.versionTest import VersionTest
 from ngSkinToolsTest.versioncheckTest import VersionCheckTest
 from ngSkinToolsTest.importExportTest import ImportExportTest,\
-    VariousImportScenarios
+    VariousImportScenarios, DefectScenarios as ImportDefectScenarios
 from ngSkinToolsTest.versioncheckIntegrationTest import VersionCheckIntegrationTest
 from ngSkinToolsTest.testInheritance import TestInheritance
 from ngSkinToolsTest.loggingTest import DummyLoggingTest, LoggingTest
@@ -39,3 +39,4 @@ ImportInfluencesTest
 InfluenceNameFilterTest
 MllInterfaceTest
 CopyPasteActionsTest
+ImportDefectScenarios

@@ -10,7 +10,8 @@ from ngSkinToolsTest import decorators
 from ngSkinToolsTest.decorators import insideMayaOnly
 from ngSkinTools.utils import Utils, MessageException
 from ngSkinTools import log as logModule
-from ngSkinToolsTest.testUtils import openMayaFile, AdditionalAsserts
+from ngSkinToolsTest.testUtils import openMayaFile, AdditionalAsserts,\
+    getTestFileContents
 from ngSkinTools.mllInterface import MllInterface
 from ngSkinTools.layerUtils import LayerUtils
 try:
@@ -267,7 +268,6 @@ class ImportExportTest(AdditionalAsserts, unittest.TestCase):
 
         
         
-        
 
 class VariousImportScenarios(AdditionalAsserts, unittest.TestCase):
     
@@ -355,4 +355,27 @@ class VariousImportScenarios(AdditionalAsserts, unittest.TestCase):
             
             
 
+class DefectScenarios(AdditionalAsserts, unittest.TestCase):
+   
+    @decorators.insideMayaOnly
+    def testDefectXmlImportIssue(self):
+        openMayaFile("defect-xml-import-fails/mirror_association_issues.ma")
+
+        importer = XmlImporter()
+        data = importer.process(getTestFileContents("defect-xml-import-fails/mirror_weighting_manual_layers.xml"))
+        
+        
+        mll = MllInterface()
+        mll.setCurrentMesh("pSphere1")
+        
+        
+        overrides = mll.listManualMirrorInfluenceAssociations()
+        self.assertEqual(len(overrides), 0)
+        
+        data.saveTo("pSphere1")
+        
+        overrides = mll.listManualMirrorInfluenceAssociations()
+        self.assertEqual(len(overrides), 1)
+        
+        
 

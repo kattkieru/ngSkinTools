@@ -1,8 +1,8 @@
 //Maya Preference 2011 (Release 1)
 //
 //
-evalDeferred("autoLoadPlugin(\"\", \"VectorRender\", \"VectorRender\")");
 evalDeferred("autoLoadPlugin(\"\", \"DirectConnect\", \"DirectConnect\")");
+evalDeferred("autoLoadPlugin(\"\", \"VectorRender\", \"VectorRender\")");
 evalDeferred("autoLoadPlugin(\"\", \"mayaHIK\", \"mayaHIK\")");
 evalDeferred("autoLoadPlugin(\"\", \"Mayatomr\", \"Mayatomr\")");
 evalDeferred("autoLoadPlugin(\"\", \"ikSpringSolver\", \"ikSpringSolver\")");

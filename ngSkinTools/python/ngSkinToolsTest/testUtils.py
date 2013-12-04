@@ -10,9 +10,26 @@ def getProjectBaseDir():
 def getBaseResourcesDir():
     return path.join(getProjectBaseDir(),'mll','test-resources')
 
+def getTestResourcesDir():
+    '''
+    reorganization - new root test resources dir
+    '''
+    return path.join(getProjectBaseDir(),'test-resources')
+
+def getTestFilePath(filePath):
+    file = path.join(getBaseResourcesDir(),filePath)
+    if not path.exists(file):
+        file = path.join(getTestResourcesDir(),filePath)
+        
+    return file
+    
+
 def openMayaFile(file):
-    file = path.join(getBaseResourcesDir(),file)
-    cmds.file(file,open=True,f=True,ignoreVersion=True)
+    cmds.file(getTestFilePath(file),open=True,f=True,ignoreVersion=True)
+    
+def getTestFileContents(file):
+    with open(getTestFilePath(file)) as content:
+        return content.read()
     
     
 def runInNextModalDialog(dialogExecutable):
